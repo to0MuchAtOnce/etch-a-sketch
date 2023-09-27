@@ -12,9 +12,11 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
   background: #2b2f37;
+  margin: 5px;
   height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .container-wrapper {
@@ -32,12 +34,19 @@ body {
 
 .grid-item {
   color: #ddd;
-  padding: 1em;
+  padding: 0.3em;
   /* border: 1px solid #ddd; */
   text-align: center;
 }
 
-.resetBtn:active,
-.btn:active {
+.newGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100px;
+}
+
+.newGrid:active {
   transform: scale(0.98);
 }

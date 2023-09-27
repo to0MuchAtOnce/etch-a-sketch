@@ -1,33 +1,17 @@
 const containerWrapper = document.querySelector('.container-wrapper');
 const container = document.querySelector('.container');
-const btn = document.createElement('button');
-const resetBtn = document.createElement('button');
+const newGrid = document.createElement('button');
 
-resetBtn.classList.add('resetBtn');
-resetBtn.style.width = '80px';
-resetBtn.style.height = '40px';
-resetBtn.style.marginBottom = '20px';
-resetBtn.style.border = 'none';
-resetBtn.style.borderRadius = '8px';
-resetBtn.style.background = '#6dcb96';
-resetBtn.style.cursor = 'pointer';
-resetBtn.textContent = 'Reset';
+newGrid.classList.add('newGrid');
+newGrid.style.marginBottom = '20px';
+newGrid.style.border = 'none';
+newGrid.style.borderRadius = '8px';
+newGrid.style.background = '#e9de87';
+newGrid.style.cursor = 'pointer';
+newGrid.textContent = 'New Grid';
 
-containerWrapper.appendChild(resetBtn);
-containerWrapper.insertBefore(resetBtn, containerWrapper.firstChild);
-
-btn.classList.add('btn');
-btn.style.width = '80px';
-btn.style.height = '40px';
-btn.style.marginBottom = '20px';
-btn.style.border = 'none';
-btn.style.borderRadius = '8px';
-btn.style.background = '#e9de87';
-btn.style.cursor = 'pointer';
-btn.textContent = 'New Grid';
-
-containerWrapper.appendChild(btn);
-containerWrapper.insertBefore(btn, containerWrapper.firstChild);
+containerWrapper.appendChild(newGrid);
+containerWrapper.insertBefore(newGrid, containerWrapper.firstChild);
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -40,11 +24,34 @@ function makeRows(rows, cols) {
       cell.style.background =
         '#' + parseInt(Math.random() * 0xffffff).toString(16);
     });
-
-    // cell.addEventListener('mouseleave', () => {
-    //   cell.style.background = '#2b2f37';
-    // });
   }
 }
+
+newGrid.addEventListener('click', () => {
+  let isValidInput = false;
+  let num;
+
+  while (!isValidInput) {
+    const userInput = prompt('Enter the number of squares per side:');
+    if (userInput === null) {
+      // User cancelled input
+      break;
+    }
+
+    num = parseInt(userInput);
+    if (!isNaN(num)) {
+      isValidInput = true;
+    } else {
+      alert('Invalid input. Please enter a valid number.');
+    }
+  }
+
+  if (isValidInput && num <= 100) {
+    container.innerHTML = '';
+    makeRows(num, num);
+  } else if (num > 100) {
+    alert('Please input a number of 100 or smaller');
+  }
+});
 
 makeRows(16, 16);
