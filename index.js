@@ -1,17 +1,12 @@
 const containerWrapper = document.querySelector('.container-wrapper');
 const container = document.querySelector('.container');
-const newGrid = document.createElement('button');
+const gridSlider = document.querySelector('.grid-slider');
+const sliderWidth = document.querySelector('.slider-width');
+const sliderHeight = document.querySelector('.slider-height');
+const clearBtn = document.querySelector('.clear-btn');
 
-newGrid.classList.add('newGrid');
-newGrid.style.marginBottom = '20px';
-newGrid.style.border = 'none';
-newGrid.style.borderRadius = '8px';
-newGrid.style.background = '#e9de87';
-newGrid.style.cursor = 'pointer';
-newGrid.textContent = 'New Grid';
-
-containerWrapper.appendChild(newGrid);
-containerWrapper.insertBefore(newGrid, containerWrapper.firstChild);
+let currentGridWidth = 16;
+let currentGridHeight = 16;
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -27,31 +22,19 @@ function makeRows(rows, cols) {
   }
 }
 
-newGrid.addEventListener('click', () => {
-  let isValidInput = false;
-  let num;
+clearBtn.addEventListener('click', () => {
+  container.innerHTML = '';
+  makeRows(currentGridWidth, currentGridHeight);
+});
 
-  while (!isValidInput) {
-    const userInput = prompt('Enter the number of squares per side:');
-    if (userInput === null) {
-      // User cancelled input
-      break;
-    }
-
-    num = parseInt(userInput);
-    if (!isNaN(num)) {
-      isValidInput = true;
-    } else {
-      alert('Invalid input. Please enter a valid number.');
-    }
-  }
-
-  if (isValidInput && num <= 100) {
-    container.innerHTML = '';
-    makeRows(num, num);
-  } else if (num > 100) {
-    alert('Please input a number of 100 or smaller');
-  }
+gridSlider.addEventListener('input', () => {
+  const sliderVal = parseInt(gridSlider.value);
+  sliderWidth.textContent = sliderVal;
+  sliderHeight.textContent = sliderVal;
+  container.innerHTML = '';
+  makeRows(sliderVal, sliderVal);
+  currentGridWidth = sliderVal;
+  currentGridHeight = sliderVal;
 });
 
 makeRows(16, 16);
