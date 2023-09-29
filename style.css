@@ -30,6 +30,13 @@ body {
   /* grid-gap: 1em; */
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
+  width: 960px;
+  height: 960px;
+}
+
+label,
+.slider-value {
+  color: #ddd;
 }
 
 .grid-item {
@@ -49,4 +56,32 @@ body {
 
 .newGrid:active {
   transform: scale(0.98);
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    width: 760px;
+    height: 760px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    width: 680px;
+    height: 680px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 420px;
+    height: 420px;
+  }
 }

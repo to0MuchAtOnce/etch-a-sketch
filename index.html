@@ -8,6 +8,24 @@
     <title>Etch-a-sketch</title>
   </head>
   <body>
+    <div class="sidebar">
+      <button class="clear-btn">Clear</button>
+      <div class="slider-container">
+        <input
+          id="gridSlider"
+          class="grid-slider"
+          type="range"
+          min="1"
+          max="100"
+          value="16"
+        />
+        <label id="sliderValue" class="slider-value" for="range">
+          Grid Size:
+          <span class="slider-width">16</span> x
+          <span class="slider-height">16</span>
+        </label>
+      </div>
+    </div>
     <div class="container-wrapper">
       <div class="container"></div>
     </div>
