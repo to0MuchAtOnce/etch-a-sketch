@@ -9,7 +9,7 @@ const eraserBtn = document.querySelector('.eraser-btn');
 let currentGridWidth = 16;
 let currentGridHeight = 16;
 
-let isDrawing = false;
+let isDrawing = true;
 let isErasing = false;
 
 function makeRows(rows, cols) {
@@ -22,7 +22,7 @@ function makeRows(rows, cols) {
     cell.addEventListener('mouseenter', () => {
       if (!isDrawing) return;
       cell.style.background = '';
-      if (!isErasing) {
+      if (isErasing) {
       } else {
         cell.style.background =
           '#' + parseInt(Math.random() * 0xffffff).toString(16);
@@ -33,15 +33,10 @@ function makeRows(rows, cols) {
 
 container.addEventListener('mousedown', () => {
   isDrawing = 'true';
-  isErasing = !isErasing;
 });
 
 container.addEventListener('mouseup', () => {
   isDrawing = false;
-});
-
-document.addEventListener('mouseup', () => {
-  isDrawing = false; // Set isDrawing to false when the mouse button is released
 });
 
 clearBtn.addEventListener('click', () => {
@@ -51,7 +46,6 @@ clearBtn.addEventListener('click', () => {
 
 eraserBtn.addEventListener('click', () => {
   isErasing = !isErasing;
-  eraserBtn.textContent = isErasing ? 'Draw' : 'Erase';
 });
 
 gridSlider.addEventListener('input', () => {
