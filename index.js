@@ -5,12 +5,21 @@ const sliderWidth = document.querySelector('.slider-width');
 const sliderHeight = document.querySelector('.slider-height');
 const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
+const rainbowBtn = document.querySelector('.rainbow-btn');
 
 let currentGridWidth = 16;
 let currentGridHeight = 16;
 
-let isDrawing = true;
+let isDrawing = false;
 let isErasing = false;
+let isRainbow = false;
+
+function Rainbow(cell) {
+  if (isRainbow && !isErasing) {
+    cell.style.background =
+      '#' + parseInt(Math.random() * 0xffffff).toString(16);
+  }
+}
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -23,9 +32,10 @@ function makeRows(rows, cols) {
       if (!isDrawing) return;
       cell.style.background = '';
       if (isErasing) {
+      } else if (isRainbow) {
+        Rainbow(cell);
       } else {
-        cell.style.background =
-          '#' + parseInt(Math.random() * 0xffffff).toString(16);
+        cell.style.background = '#000';
       }
     });
   }
@@ -46,6 +56,11 @@ clearBtn.addEventListener('click', () => {
 
 eraserBtn.addEventListener('click', () => {
   isErasing = !isErasing;
+});
+
+rainbowBtn.addEventListener('click', () => {
+  isRainbow = !isRainbow;
+  isErasing = false;
 });
 
 gridSlider.addEventListener('input', () => {
