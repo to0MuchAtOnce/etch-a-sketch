@@ -18,11 +18,6 @@ body {
   margin: 0 auto;
 }
 
-.container-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 .container {
   display: grid;
   border: 1px solid #ddd;
@@ -33,9 +28,8 @@ body {
   height: 960px;
 }
 
-.sidebar-btns {
+.sidebar {
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
