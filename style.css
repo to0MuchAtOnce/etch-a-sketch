@@ -1,6 +1,8 @@
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
+  --bg: #45454a;
+  --sidebar: #313137;
 }
 
 * {
@@ -10,12 +12,15 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  background: #2b2f37;
+  background: var(--bg);
   margin: 5px;
   height: 100vh;
   margin: 0 auto;
+  width: 1096px;
+}
+
+.main {
+  display: flex;
 }
 
 .container {
@@ -24,11 +29,17 @@ body {
   /* grid-gap: 1em; */
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-  width: 960px;
-  height: 960px;
+  width: 800px;
+  height: 800px;
 }
 
 .sidebar {
+  background: var(--sidebar);
+  margin: 0rem 1rem;
+  border-radius: 10px;
+}
+
+.sidebar-btns {
   display: flex;
   flex-direction: column;
 }
