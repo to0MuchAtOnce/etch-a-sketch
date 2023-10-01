@@ -57,12 +57,20 @@ clearBtn.addEventListener('click', () => {
 });
 
 eraserBtn.addEventListener('click', () => {
-  isErasing = !isErasing;
+  if ((isErasing = !isErasing)) {
+    eraserBtn.classList.add('active');
+  } else {
+    eraserBtn.classList.remove('active');
+  }
 });
 
 rainbowBtn.addEventListener('click', () => {
-  isRainbow = !isRainbow;
-  isErasing = false;
+  if ((isRainbow = !isRainbow)) {
+    isErasing = false;
+    rainbowBtn.classList.add('active');
+  } else {
+    rainbowBtn.classList.remove('active');
+  }
 });
 
 gridSlider.addEventListener('input', () => {

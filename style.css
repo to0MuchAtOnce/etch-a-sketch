@@ -3,6 +3,7 @@
   --grid-rows: 1;
   --bg: #45454a;
   --sidebar: #313137;
+  --accent: #f04a4a;
 }
 
 * {
@@ -35,13 +36,66 @@ body {
 
 .sidebar {
   background: var(--sidebar);
-  margin: 0rem 1rem;
+  padding: 1rem 2rem;
+  margin: 0rem 2rem;
   border-radius: 10px;
+  height: 10%;
 }
 
 .sidebar-btns {
   display: flex;
   flex-direction: column;
+}
+
+.pick-color-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.pick-color-label {
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  margin-top: 25px;
+}
+
+.btn {
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  padding: 0.7rem 5rem;
+  margin: 0.7rem 0;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-slider {
+  margin: 1rem 0;
+}
+
+.clear-btn:active {
+  background: var(--accent);
+  transform: scale(0.98);
+  transition: 0.2s ease;
+}
+
+.eraser-btn:active,
+.rainbow-btn:active {
+  transform: scale(0.98);
+  transition: 0.2s ease;
+}
+
+.active {
+  background: var(--accent);
 }
 
 label,
@@ -82,6 +136,15 @@ input[type='color'] {
 }
 
 @media screen and (max-width: 960px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    max-width: 600px;
+  }
+
   .container {
     width: 760px;
     height: 760px;
