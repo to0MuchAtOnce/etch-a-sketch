@@ -11,30 +11,34 @@
     <header>
       <h1>Etch-a-sketch</h1>
     </header>
-    <div class="sidebar">
-      <div class="sidebar-btns">
-        <button class="clear-btn">Clear</button>
-        <button class="eraser-btn">Erase</button>
-        <button class="rainbow-btn">Rainbow</button>
-        <label for="pick-color">Pick a color:</label>
-        <input type="color" id="pickColor" value="#000000" />
+    <main class="main">
+      <div class="sidebar">
+        <div class="sidebar-btns">
+          <button class="clear-btn">Clear</button>
+          <button class="eraser-btn">Erase</button>
+          <button class="rainbow-btn">Rainbow</button>
+          <div class="color-pick-wrapper">
+            <label for="pick-color">Pick a color:</label>
+            <input type="color" id="pickColor" value="#000000" />
+          </div>
+        </div>
+        <div class="slider-wrapper">
+          <input
+            id="gridSlider"
+            class="grid-slider"
+            type="range"
+            min="1"
+            max="100"
+            value="16"
+          />
+          <label id="sliderValue" class="slider-value" for="range">
+            Grid Size:
+            <span class="slider-width">16</span> x
+            <span class="slider-height">16</span>
+          </label>
+        </div>
       </div>
-      <div class="slider-container">
-        <input
-          id="gridSlider"
-          class="grid-slider"
-          type="range"
-          min="1"
-          max="100"
-          value="16"
-        />
-        <label id="sliderValue" class="slider-value" for="range">
-          Grid Size:
-          <span class="slider-width">16</span> x
-          <span class="slider-height">16</span>
-        </label>
-      </div>
-    </div>
-    <div class="container"></div>
+      <div class="container"></div>
+    </main>
   </body>
 </html>
