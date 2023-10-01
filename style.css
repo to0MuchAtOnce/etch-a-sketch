@@ -15,13 +15,7 @@ body {
   background: #2b2f37;
   margin: 5px;
   height: 100vh;
-  max-width: 960px;
   margin: 0 auto;
-}
-
-.container-wrapper {
-  display: flex;
-  flex-direction: column;
 }
 
 .container {
@@ -34,9 +28,27 @@ body {
   height: 960px;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
 label,
 .slider-value {
   color: #ddd;
+}
+
+input[type='color'] {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+#pickColor::-webkit-color-swatch {
+  width: 50px;
+  height: 40px;
+  border: 2px solid #bcbcbc;
+  border-radius: 6px;
 }
 
 .grid-item {

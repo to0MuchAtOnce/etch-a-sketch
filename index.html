@@ -8,11 +8,16 @@
     <title>Etch-a-sketch</title>
   </head>
   <body>
+    <header>
+      <h1>Etch-a-sketch</h1>
+    </header>
     <div class="sidebar">
-      <div class="btns">
+      <div class="sidebar-btns">
         <button class="clear-btn">Clear</button>
         <button class="eraser-btn">Erase</button>
         <button class="rainbow-btn">Rainbow</button>
+        <label for="pick-color">Pick a color:</label>
+        <input type="color" id="pickColor" value="#000000" />
       </div>
       <div class="slider-container">
         <input
@@ -30,8 +35,6 @@
         </label>
       </div>
     </div>
-    <div class="container-wrapper">
-      <div class="container"></div>
-    </div>
+    <div class="container"></div>
   </body>
 </html>
