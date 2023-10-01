@@ -6,6 +6,7 @@ const sliderHeight = document.querySelector('.slider-height');
 const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
+const pickColor = document.getElementById('pickColor');
 
 let currentGridWidth = 16;
 let currentGridHeight = 16;
@@ -35,7 +36,8 @@ function makeRows(rows, cols) {
       } else if (isRainbow) {
         Rainbow(cell);
       } else {
-        cell.style.background = '#000';
+        const selectedColor = pickColor.value;
+        cell.style.background = selectedColor;
       }
     });
   }
