@@ -15,23 +15,23 @@
 body {
   background: var(--bg);
   margin: 5px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
-  width: 1096px;
 }
 
 .main {
   display: flex;
+  justify-content: center;
 }
 
 .container {
   display: grid;
-  border: 1px solid #ddd;
-  /* grid-gap: 1em; */
+  border: 1px solid #201e1e;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-  width: 800px;
-  height: 800px;
+  min-width: 800px;
+  min-height: 800px;
+  margin-bottom: 30px;
 }
 
 .sidebar {
@@ -40,6 +40,8 @@ body {
   margin: 0rem 2rem;
   border-radius: 10px;
   height: 10%;
+  width: 20%;
+  min-width: 450px;
 }
 
 .sidebar-btns {
@@ -119,14 +121,11 @@ input[type='color'] {
 .grid-item {
   color: #ddd;
   padding: 0.3em;
-  /* border: 1px solid #ddd; */
+  border: 1px solid #ddd;
   text-align: center;
 }
 
 .newGrid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 10px;
   width: 100px;
 }
@@ -135,39 +134,94 @@ input[type='color'] {
   transform: scale(0.98);
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1380px) {
   .main {
     display: flex;
-    flex-direction: column;
+  }
+
+  .container {
+    min-width: 650px;
+    min-height: 650px;
+    margin: 20px;
   }
 
   .sidebar {
-    max-width: 600px;
-  }
-
-  .container {
-    width: 760px;
-    height: 760px;
+    flex: 1;
+    min-width: 450px;
+    margin-top: 20px;
   }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 1198px) {
+  .main {
+    display: flex;
+  }
+
   .container {
-    width: 680px;
-    height: 680px;
+    min-width: 550px;
+    min-height: 550px;
+    margin: 20px;
+  }
+
+  .sidebar {
+    flex: 1;
+    min-width: 450px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .main {
+    display: flex;
+  }
+
+  .container {
+    min-width: 500px;
+    min-height: 500px;
+    margin: 20px;
+  }
+
+  .sidebar {
+    min-width: 450px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    min-width: 550px;
+    min-height: 480px;
+    margin: 20px;
+  }
+
+  .sidebar {
+    flex: 1;
+    order: 2;
+    min-width: 550px;
   }
 }
 
 @media screen and (max-width: 680px) {
-  .container {
-    width: 520px;
-    height: 520px;
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-}
 
-@media screen and (max-width: 600px) {
   .container {
-    width: 420px;
-    height: 420px;
+    min-width: 450px;
+    min-height: 450px;
+    margin: 20px;
+  }
+
+  .sidebar {
+    flex: 1;
+    order: 2;
+    min-width: 450px;
   }
 }
