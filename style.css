@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600&display=swap');
+
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
-  --bg: #45454a;
-  --sidebar: #313137;
+  --grid: #7c7c7c;
+  --bg: #2b3138;
+  --border: #201e1e;
+  --sidebar: #262629;
   --accent: #f04a4a;
+  --white: #e8e8e8;
+  --off-white: #bcbcbc;
 }
 
 * {
@@ -19,14 +25,35 @@ body {
   margin: 0 auto;
 }
 
+header {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.logo {
+  font-size: 40px;
+  font-family: 'pixelify sans';
+}
+
+.logo-red {
+  padding: 0 5px;
+  background: var(--accent);
+}
+
+.logo-white {
+  padding: 0 5px;
+  background: var(--white);
+}
+
 .main {
   display: flex;
   justify-content: center;
 }
 
 .container {
+  background: rgb(215, 215, 215);
   display: grid;
-  border: 1px solid #201e1e;
+  border: 1px solid var(--border);
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   min-width: 800px;
@@ -67,7 +94,7 @@ body {
   background: transparent;
   border: 2px solid var(--accent);
   border-radius: 6px;
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
   font-size: 16px;
   letter-spacing: 0.6px;
@@ -82,6 +109,10 @@ body {
 
 .grid-slider {
   margin: 1rem 0;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  color: var(--accent);
 }
 
 .clear-btn:active {
@@ -102,7 +133,7 @@ body {
 
 label,
 .slider-value {
-  color: #ddd;
+  color: var(--white);
 }
 
 input[type='color'] {
@@ -114,14 +145,14 @@ input[type='color'] {
 #pickColor::-webkit-color-swatch {
   width: 50px;
   height: 40px;
-  border: 2px solid #bcbcbc;
+  border: 2px solid var(--off-white);
   border-radius: 6px;
 }
 
 .grid-item {
-  color: #ddd;
+  color: var(--grid);
   padding: 0.3em;
-  border: 1px solid #ddd;
+  border: 0.1px solid var(--grid);
   text-align: center;
 }
 
@@ -153,6 +184,10 @@ input[type='color'] {
 }
 
 @media screen and (max-width: 1198px) {
+  header {
+    margin: 10px;
+  }
+
   .main {
     display: flex;
   }
@@ -160,7 +195,7 @@ input[type='color'] {
   .container {
     min-width: 550px;
     min-height: 550px;
-    margin: 20px;
+    margin: 10px;
   }
 
   .sidebar {
@@ -171,6 +206,10 @@ input[type='color'] {
 }
 
 @media screen and (max-width: 1280px) {
+  .logo {
+    font-size: 36px;
+  }
+
   .main {
     display: flex;
   }
@@ -178,7 +217,7 @@ input[type='color'] {
   .container {
     min-width: 500px;
     min-height: 500px;
-    margin: 20px;
+    margin: 10px;
   }
 
   .sidebar {
@@ -196,7 +235,7 @@ input[type='color'] {
   .container {
     min-width: 550px;
     min-height: 480px;
-    margin: 20px;
+    margin: 10px;
   }
 
   .sidebar {
@@ -216,7 +255,7 @@ input[type='color'] {
   .container {
     min-width: 450px;
     min-height: 450px;
-    margin: 20px;
+    margin: 10px;
   }
 
   .sidebar {
