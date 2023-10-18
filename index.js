@@ -6,6 +6,7 @@ const sliderHeight = document.querySelector('.slider-height');
 const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
+const gradiantBtn = document.querySelector('.gradiant-btn');
 const pickColor = document.getElementById('pickColor');
 
 let currentGridWidth = 16;
@@ -14,6 +15,7 @@ let currentGridHeight = 16;
 let isDrawing = false;
 let isErasing = false;
 let isRainbow = false;
+let isGradiant = false;
 
 function Rainbow(cell) {
   if (isRainbow && !isErasing) {
@@ -57,12 +59,31 @@ clearBtn.addEventListener('click', () => {
 });
 
 eraserBtn.addEventListener('click', () => {
-  isErasing = !isErasing;
+  if ((isErasing = !isErasing)) {
+    eraserBtn.classList.add('active');
+  } else {
+    eraserBtn.classList.remove('active');
+  }
 });
 
 rainbowBtn.addEventListener('click', () => {
-  isRainbow = !isRainbow;
-  isErasing = false;
+  if ((isRainbow = !isRainbow)) {
+    isErasing = false;
+    rainbowBtn.classList.add('active');
+  } else {
+    rainbowBtn.classList.remove('active');
+  }
+});
+
+gradiantBtn.addEventListener('click', () => {
+  if ((isGradiant = !isGradiant)) {
+    gradiantBtn.classList.add('active');
+  } else {
+    gradiantBtn.classList.remove('active');
+  }
+
+  let currentOpacity = Number(gradiant.style.opacity);
+  if (currentOpacity < 1) gradiant.style.opacity = currentOpacity + 0.1;
 });
 
 gridSlider.addEventListener('input', () => {
