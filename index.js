@@ -81,9 +81,6 @@ gradiantBtn.addEventListener('click', () => {
   } else {
     gradiantBtn.classList.remove('active');
   }
-
-  let currentOpacity = Number(gradiant.style.opacity);
-  if (currentOpacity < 1) gradiant.style.opacity = currentOpacity + 0.1;
 });
 
 gridSlider.addEventListener('input', () => {
