@@ -161,7 +161,8 @@ input[type='range']::-ms-thumb {
 }
 
 .eraser-btn:active,
-.rainbow-btn:active {
+.rainbow-btn:active,
+.grid-toggle:active {
   transform: scale(0.98);
   transition: 0.2s ease;
 }
@@ -191,8 +192,11 @@ input[type='color'] {
 .grid-item {
   color: var(--grid);
   padding: 0.3em;
-  border: 0.1px solid var(--grid);
   text-align: center;
+}
+
+.grid-lines-visible {
+  border: 0.1px solid var(--grid);
 }
 
 .newGrid {

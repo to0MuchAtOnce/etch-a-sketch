@@ -6,7 +6,7 @@ const sliderHeight = document.querySelector('.slider-height');
 const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
-const gradiantBtn = document.querySelector('.gradiant-btn');
+const gridToggle = document.querySelector('.grid-toggle');
 const pickColor = document.getElementById('pickColor');
 
 let currentGridWidth = 16;
@@ -15,7 +15,7 @@ let currentGridHeight = 16;
 let isDrawing = false;
 let isErasing = false;
 let isRainbow = false;
-let isGradiant = false;
+let gridLinesVisible = false;
 
 function Rainbow(cell) {
   if (isRainbow && !isErasing) {
@@ -30,6 +30,10 @@ function makeRows(rows, cols) {
   for (c = 0; c < rows * cols; c++) {
     let cell = document.createElement('div');
     container.appendChild(cell).className = 'grid-item';
+
+    if (gridLinesVisible) {
+      cell.classList.add('grid-lines-visible');
+    }
 
     cell.addEventListener('mouseenter', () => {
       if (!isDrawing) return;
@@ -75,11 +79,15 @@ rainbowBtn.addEventListener('click', () => {
   }
 });
 
-gradiantBtn.addEventListener('click', () => {
-  if ((isGradiant = !isGradiant)) {
-    gradiantBtn.classList.add('active');
+gridToggle.addEventListener('click', () => {
+  if ((gridLinesVisible = !gridLinesVisible)) {
+    gridToggle.classList.add('active');
+    container.innerHTML = '';
+    makeRows(currentGridWidth, currentGridHeight);
   } else {
-    gradiantBtn.classList.remove('active');
+    gridToggle.classList.add('active');
+    container.innerHTML = '';
+    gridToggle.classList.remove('active');
   }
 });
 
